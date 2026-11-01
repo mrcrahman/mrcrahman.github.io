@@ -90,8 +90,8 @@ textarea{min-height:110px}.admin-row{display:flex;gap:10px;flex-wrap:wrap}.admin
   <h2 class="section-title">Resume</h2>
   <p class="section-sub">View my resume directly on the site.</p>
   <div class="resume-wrap">
-    <div class="resume-toolbar"><span>Resume — Cherif Rahman</span><a href="resume.pdf?v=20261010" download>Download PDF</a></div>
-    <iframe class="resume-frame" src="resume.pdf?v=20261010#toolbar=0&navpanes=0" title="Cherif Rahman resume"></iframe>
+    <div class="resume-toolbar"><span>Resume — Cherif Rahman</span><a href="resume.pdf?v=20261031" download>Download PDF</a></div>
+    <iframe class="resume-frame" src="resume.pdf?v=20261031#toolbar=0&navpanes=0" title="Cherif Rahman resume"></iframe>
   </div>
 </div></section>
 </main>
@@ -103,13 +103,14 @@ const defaults={
  headline:"Cloud security, learned by doing.",
  about:"I'm Cherif Rahman, a cybersecurity student developing hands-on skills in networking, defensive security, AWS cloud security, governance, and least-privilege access.",
  projects:[
+  {title:"Automated AWS Security Baseline",desc:"A practice scenario modeled on Nationwide (no affiliation). CloudFormation with Git sync deploys CloudTrail, AWS Config rules for public S3 and open SSH, and SNS alerts. EventBridge and a Python Lambda restore S3 Block Public Access automatically, and a CI gate lints every change.",tags:["CloudFormation","AWS Config","EventBridge","Lambda","GitHub Actions"],url:"https://github.com/mrcrahman/policyholder-security-baseline"},
   {title:"AWS IAM Compliance Triage Engine",desc:"A SQL-based engine that scans AWS IAM credential reports for root access keys, users without MFA, and old access keys, ranks findings by severity, and proves remediation with a before-and-after retest.",tags:["AWS IAM","SQL","DuckDB","Compliance"],url:"https://github.com/mrcrahman/aws-iam-compliance-triage"},
   {title:"Least-Privilege AWS Access Simulation",desc:"Simulate a least-privilege security model in AWS by designing access around only the permissions needed for a task, then reviewing the resulting access and security boundaries.",tags:["AWS IAM","Least Privilege","Identity Security","Governance"]},
   {title:"OWASP Juice Shop Security Lab",desc:"Hands-on cybersecurity lab work using OWASP Juice Shop to practice identifying common web application security issues in a controlled environment.",tags:["OWASP","Web Security","Security Lab"]}
  ],
  skills:["Network Fundamentals","Basic Cybersecurity","Computer Hardware","Windows Operating Systems","Troubleshooting","Microsoft Office","Communication","Analytical Problem Solving","Teamwork","AWS Cloud Security"]
 };
-let data=JSON.parse(localStorage.getItem("cherifPortfolioV3")||"null")||defaults;
+let data=JSON.parse(localStorage.getItem("cherifPortfolioV4")||"null")||defaults;
 function render(){
  document.querySelector("h1").innerHTML=esc(data.headline).replace(/cloud security/gi,m=>"<span>"+m+"</span>");
  document.querySelector(".lead").textContent=data.about;
